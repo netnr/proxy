@@ -20,6 +20,7 @@ https://proxy.netnr.com
 
 
 > fetch请求
+
 ```
 fetch("https://proxy.netnr.com/?url=https://www.google.com")
 	.then(x => x.text())
