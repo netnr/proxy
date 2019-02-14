@@ -11,10 +11,11 @@ https://proxy.netnr.com?url=
 ### 示例
 > 请求源代码
 
-`https://proxy.netnr.com?url=https://www.google.com`
+<https://proxy.netnr.com?url=https://www.google.com>
 
 
 > fetch请求jquery脚本
+
 ```
 fetch("https://proxy.netnr.com/?url=https://api.github.com")
     .then(x => x.text())
@@ -24,4 +25,4 @@ fetch("https://proxy.netnr.com/?url=https://api.github.com")
 ```
 
 ### 服务器环境
-- https://www.netnr.com/mix/about
+<https://www.netnr.com/mix/about>
