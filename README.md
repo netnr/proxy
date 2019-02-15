@@ -14,7 +14,7 @@ https://proxy.netnr.com/$url
 - <https://proxy.netnr.com/https://www.google.com>
 - <https://proxy.netnr.com/https://api.github.com>
 
-> fetch请求
+> fetch请求，拷贝到控制台运行
 
 ```
 fetch("https://proxy.netnr.com/https://www.google.com")
@@ -32,6 +32,11 @@ fetch("https://proxy.netnr.com/" + $url)
 		console.log(data);
 	})
 ```
+
+### 安装
+`npm install`
+
+`node server.js`
 
 ### 服务器环境
 搬瓦工 CN2 1G带宽，详细信息：<https://www.netnr.com/mix/about>
