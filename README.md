@@ -6,33 +6,24 @@ HTTP请求代理，CORS跨域请求，HTTPS支持
 - 支持HTTPS（解决远程数据接口不支持HTTPS）
 
 ### 接口
-https://proxy.netnr.com
-
-### 参数
-- url：HTTP请求的完整链接，必填
-- cors：不添加跨域标识，传cors=0，不添加跨域，默认添加跨域，可选
-    - 已经支持跨域的站点会造成重复添加，所以配置一个参数
+https://proxy.netnr.com/$url
 
 ### 示例
-> 请求源代码
+> 请求接口
 
-<https://proxy.netnr.com?url=https://www.google.com>
-
+- <https://proxy.netnr.com/https://www.google.com>
+- <https://proxy.netnr.com/https://api.github.com>
 
 > fetch请求
 
 ```
-fetch("https://proxy.netnr.com/?url=https://www.google.com")
+fetch("https://proxy.netnr.com/https://www.google.com")
 	.then(x => x.text())
 	.then(function (data) {
 		console.log(data);
 	})
-```
 
-```
-var url = "https://api.github.com";
-//由于api.github.com已经支持跨域，需要配置参数cors=0，不添加跨域，不然会重复添加
-fetch("https://proxy.netnr.com/?url=" + url + '&cors=0')
+fetch("https://proxy.netnr.com/http://wthrcdn.etouch.cn/weather_mini?citykey=101040100")
 	.then(x => x.text())
 	.then(function (data) {
 		console.log(data);
@@ -40,4 +31,7 @@ fetch("https://proxy.netnr.com/?url=" + url + '&cors=0')
 ```
 
 ### 服务器环境
-<https://www.netnr.com/mix/about>
+搬瓦工 CN2 1G带宽，详细信息：<https://www.netnr.com/mix/about>
+
+### Fork
+<https://github.com/Rob--W/cors-anywhere>

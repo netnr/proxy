@@ -1,0 +1,42 @@
+{
+  "name": "proxy.netnr.com",
+  "version": "1.0.0",
+  "description": "CORS Anywhere is a reverse proxy which adds CORS headers to the proxied request. Request URL is taken from the path",
+  "license": "MIT",
+  "author": "netnr",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/netnr/proxy"
+  },
+  "bugs": {
+    "url": "https://github.com/netnr/proxy/issues",
+    "email": "netnr@netnr.com"
+  },
+  "keywords": [
+    "cors",
+    "cross-domain",
+    "http-proxy",
+    "proxy"
+  ],
+  "main": "./lib/cors-anywhere.js",
+  "files": [
+    "lib/",
+    "server.js"
+  ],
+  "dependencies": {
+    "http-proxy": "1.11.1",
+    "proxy-from-env": "0.0.1"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.6",
+    "eslint": "^2.2.0",
+    "istanbul": "^0.4.2",
+    "lolex": "^1.5.0",
+    "mocha": "^3.4.2",
+    "nock": "^8.2.1",
+    "supertest": "^2.0.1"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
