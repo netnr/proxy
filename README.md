@@ -22,8 +22,11 @@ fetch("https://proxy.netnr.com/https://www.google.com")
 	.then(function (data) {
 		console.log(data);
 	})
+```
 
-fetch("https://proxy.netnr.com/http://wthrcdn.etouch.cn/weather_mini?citykey=101040100")
+```
+var $url = "http://wthrcdn.etouch.cn/weather_mini?citykey=101040100";
+fetch("https://proxy.netnr.com/" + $url)
 	.then(x => x.text())
 	.then(function (data) {
 		console.log(data);
