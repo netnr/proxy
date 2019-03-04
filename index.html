@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="keywords" content="netnr,NET牛人,proxy,cors,HTTPS跨域代理" />
+    <meta name="description" content="netnr,NET牛人,proxy,cors,HTTPS跨域代理" />
+
+    <title>proxy</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link href="favicon.svg" rel="Shortcut Icon" type="image/svg" />
+
+    <link href="https://lib.baomitu.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://lib.baomitu.com/highlight.js/9.15.6/styles/github.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>proxy</h1>
+                <blockquote>
+                    <p>HTTP请求代理，CORS跨域请求，HTTPS支持</p>
+                </blockquote>
+                <h3>作用</h3>
+                <ul>
+                    <li>支持跨域请求（转换不支持跨域请求的接口），可直接发起 ajax、fetch</li>
+                    <li>支持HTTPS（解决远程数据接口不支持HTTPS）</li>
+                </ul>
+                <h3>接口</h3>
+                <ul>
+                    <li><a href="https://proxy.netnr.com/$url">https://proxy.netnr.com/$url</a></li>
+                </ul>
+                <h3>示例</h3>
+                <blockquote>
+                    <p>请求接口</p>
+                </blockquote>
+                <ul>
+                    <li><a href="https://proxy.netnr.com/https://www.google.com">https://proxy.netnr.com/https://www.google.com</a></li>
+                    <li><a href="https://proxy.netnr.com/https://api.github.com">https://proxy.netnr.com/https://api.github.com</a></li>
+                </ul>
+                <blockquote>
+                    <p>fetch请求，拷贝到控制台运行</p>
+                </blockquote>
+<pre><code>fetch(<span class="hljs-string">"https://proxy.netnr.com/https://www.google.com"</span>)
+    .then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x.text())
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+                <span class="hljs-built_in">console</span>.log(data);
+    })
+</code></pre>
+                <hr>
+<pre><code><span class="hljs-keyword">var</span> $url = <span class="hljs-string">"http://wthrcdn.etouch.cn/weather_mini?citykey=101040100"</span>;
+fetch(<span class="hljs-string">"https://proxy.netnr.com/"</span> + $url)
+    .then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x.text())
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+                <span class="hljs-built_in">console</span>.log(data);
+    })
+</code></pre>
+                <h3>安装</h3>
+                <ul>
+                    <li><code>npm install</code></li>
+                    <li><code>node server.js</code></li>
+                </ul>
+                <h3>服务器环境</h3>
+                <ul>
+                    <li>搬瓦工 CN2 1G带宽，详细信息：<a href="https://www.netnr.com/mix/about">https://www.netnr.com/mix/about</a></li>
+                </ul>
+                <h3>Fork</h3>
+                <ul>
+                    <li><a href="https://github.com/Rob--W/cors-anywhere">https://github.com/Rob--W/cors-anywhere</a></li>
+                </ul>
+                <h3>Source</h3>
+                <ul>
+                    <li><a href="https://github.com/netnr/proxy">https://github.com/netnr/proxy</a></li>
+                    <li><a href="https://gitee.com/netnr/proxy">https://gitee.com/netnr/proxy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,12 +1,12 @@
 # proxy
-HTTP请求代理，CORS跨域请求，HTTPS支持
+> HTTP请求代理，CORS跨域请求，HTTPS支持
 
 ### 作用
 - 支持跨域请求（转换不支持跨域请求的接口），可直接发起 ajax、fetch
 - 支持HTTPS（解决远程数据接口不支持HTTPS）
 
 ### 接口
-https://proxy.netnr.com/$url
+- https://proxy.netnr.com/$url
 
 ### 示例
 > 请求接口
@@ -23,7 +23,7 @@ fetch("https://proxy.netnr.com/https://www.google.com")
 		console.log(data);
 	})
 ```
-
+----------
 ```
 var $url = "http://wthrcdn.etouch.cn/weather_mini?citykey=101040100";
 fetch("https://proxy.netnr.com/" + $url)
@@ -34,12 +34,15 @@ fetch("https://proxy.netnr.com/" + $url)
 ```
 
 ### 安装
-`npm install`
-
-`node server.js`
+- `npm install`
+- `node server.js`
 
 ### 服务器环境
-搬瓦工 CN2 1G带宽，详细信息：<https://www.netnr.com/mix/about>
+- 搬瓦工 CN2 1G带宽，详细信息：<https://www.netnr.com/mix/about>
 
 ### Fork
-<https://github.com/Rob--W/cors-anywhere>
+- <https://github.com/Rob--W/cors-anywhere>
+
+### Source
+- <https://github.com/netnr/proxy>
+- <https://gitee.com/netnr/proxy>
