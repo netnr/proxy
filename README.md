@@ -6,18 +6,18 @@
 - 支持HTTPS（解决远程数据接口不支持HTTPS）
 
 ### 接口
-- https://proxy.netnr.com/$url
+- https://proxy.zme.ink/$url
 
 ### 示例
 > 请求接口
 
-- <https://proxy.netnr.com/https://www.google.com>
-- <https://proxy.netnr.com/https://api.github.com>
+- <https://proxy.zme.ink/https://www.google.com>
+- <https://proxy.zme.ink/https://api.github.com>
 
 > fetch请求，拷贝到控制台运行
 
 ```
-fetch("https://proxy.netnr.com/https://www.google.com")
+fetch("https://proxy.zme.ink/https://www.google.com")
 	.then(x => x.text())
 	.then(function (data) {
 		console.log(data);
@@ -26,7 +26,7 @@ fetch("https://proxy.netnr.com/https://www.google.com")
 ----------
 ```
 var $url = "http://wthrcdn.etouch.cn/weather_mini?citykey=101040100";
-fetch("https://proxy.netnr.com/" + $url)
+fetch("https://proxy.zme.ink/" + $url)
 	.then(x => x.text())
 	.then(function (data) {
 		console.log(data);

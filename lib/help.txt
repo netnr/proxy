@@ -1,5 +1,5 @@
 Cross-domain request service
 
-https://proxy.netnr.com/$url
+https://proxy.zme.ink/$url
 
 https://github.com/netnr/proxy
