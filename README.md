@@ -8,13 +8,12 @@
 ### 接口
 - https://proxy.zme.ink/$url
 
-### 示例
-> 请求接口
-
-- <https://proxy.zme.ink/https://www.google.com>
+### 使用
 - <https://proxy.zme.ink/https://api.github.com>
+- <https://proxy.zme.ink/https://www.google.com>
+- <https://proxy.zme.ink/http://nginx.org/download/nginx-1.14.2.tar.gz>
 
-> fetch请求，拷贝到控制台运行
+> 拷贝到控制台运行
 
 ```
 fetch("https://proxy.zme.ink/https://www.google.com")
@@ -36,9 +35,6 @@ fetch("https://proxy.zme.ink/" + $url)
 ### 安装
 - `npm install`
 - `node server.js`
-
-### 服务器环境
-- 搬瓦工 CN2 1G带宽，详细信息：<https://www.netnr.com/mix/about>
 
 ### Fork
 - <https://github.com/Rob--W/cors-anywhere>
