@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "proxy",
+  "builds": [
+    {
+      "src": "*.js",
+      "use": "@now/node"
+    }
+  ]
+}
