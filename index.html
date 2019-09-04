@@ -8,16 +8,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link href="favicon.svg" rel="Shortcut Icon" type="image/svg" />
 
     <meta name="keywords" content="netnr,NET牛人,proxy,cors,HTTPS跨域代理" />
     <meta name="description" content="netnr,NET牛人,proxy,cors,HTTPS跨域代理" />
 
     <title>proxy</title>
 
+    <link href="https://cdn.jsdelivr.net/gh/netnr/netnrmd@2.0.0/src/netnrmd.css" rel="stylesheet">
     <link href="https://lib.baomitu.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://lib.baomitu.com/github-markdown-css/3.0.1/github-markdown.min.css" rel="stylesheet">
-
 </head>
 <body>
     <div class="container">
@@ -39,26 +37,20 @@
                 <h3>使用</h3>
                 <ul>
                     <li><a href="https://proxy.zme.ink/https://api.github.com">https://proxy.zme.ink/https://api.github.com</a></li>
-                    <li><a href="https://proxy.zme.ink/https://www.google.com">https://proxy.zme.ink/https://www.google.com</a></li>
-                    <li><a href="https://proxy.zme.ink/http://nginx.org/download/nginx-1.14.2.tar.gz">https://proxy.zme.ink/http://nginx.org/download/nginx-1.14.2.tar.gz</a></li>
+                    <li><a href="https://proxy.zme.ink/www.google.com">https://proxy.zme.ink/www.google.com</a></li>
+                    <li><a href="https://proxy.zme.ink/http://nginx.org/download/nginx-1.16.1.tar.gz">https://proxy.zme.ink/http://nginx.org/download/nginx-1.16.1.tar.gz</a></li>
                 </ul>
                 <blockquote>
                     <p>拷贝到控制台运行</p>
                 </blockquote>
-<pre><code>fetch(<span class="hljs-string">"https://proxy.zme.ink/https://www.google.com"</span>)
+<pre><code class="language-js">fetch(<span class="hljs-string">"https://proxy.zme.ink/youtube.com"</span>)
     .then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x.text())
-    .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
-                <span class="hljs-built_in">console</span>.log(data);
-    })
-</code></pre>
+    .then(<span class="hljs-built_in">console</span>.log)</code></pre>
                 <hr>
-<pre><code><span class="hljs-keyword">var</span> $url = <span class="hljs-string">"http://wthrcdn.etouch.cn/weather_mini?citykey=101040100"</span>;
+<pre><code class="language-js"><span class="hljs-keyword">var</span> $url = <span class="hljs-string">"http://wthrcdn.etouch.cn/weather_mini?citykey=101040100"</span>;
 fetch(<span class="hljs-string">"https://proxy.zme.ink/"</span> + $url)
     .then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x.text())
-    .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
-                <span class="hljs-built_in">console</span>.log(data);
-    })
-</code></pre>
+    .then(<span class="hljs-built_in">console</span>.log)</code></pre>
                 <h3>安装</h3>
                 <ul>
                     <li><code>npm install</code></li>

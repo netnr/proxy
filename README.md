@@ -15,13 +15,13 @@
 
 > 拷贝到控制台运行
 
-```
+```js
 fetch("https://proxy.zme.ink/youtube.com")
 	.then(x => x.text())
 	.then(console.log)
 ```
 ----------
-```
+```js
 var $url = "http://wthrcdn.etouch.cn/weather_mini?citykey=101040100";
 fetch("https://proxy.zme.ink/" + $url)
 	.then(x => x.text())
