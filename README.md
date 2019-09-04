@@ -10,26 +10,22 @@
 
 ### 使用
 - <https://proxy.zme.ink/https://api.github.com>
-- <https://proxy.zme.ink/https://www.google.com>
-- <https://proxy.zme.ink/http://nginx.org/download/nginx-1.14.2.tar.gz>
+- <https://proxy.zme.ink/www.google.com>
+- <https://proxy.zme.ink/http://nginx.org/download/nginx-1.16.1.tar.gz>
 
 > 拷贝到控制台运行
 
 ```
-fetch("https://proxy.zme.ink/https://www.google.com")
+fetch("https://proxy.zme.ink/youtube.com")
 	.then(x => x.text())
-	.then(function (data) {
-		console.log(data);
-	})
+	.then(console.log)
 ```
 ----------
 ```
 var $url = "http://wthrcdn.etouch.cn/weather_mini?citykey=101040100";
 fetch("https://proxy.zme.ink/" + $url)
 	.then(x => x.text())
-	.then(function (data) {
-		console.log(data);
-	})
+	.then(console.log)
 ```
 
 ### 安装
