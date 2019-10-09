@@ -18,7 +18,7 @@ app.all('*', function (req, res, next) {
         res.send();
     }
     else if (req.url == "/") {
-        res.send(req.header("host") + "/URL");
+        res.send("Host/{URL}");
     } else {
         var proxyUrl = req.url.substring(1);
         if (proxyUrl.toLowerCase().indexOf("http") != 0) {
@@ -29,9 +29,8 @@ app.all('*', function (req, res, next) {
             function (error, response) {
                 if (error) {
                     console.log(error.message);
-                } else {
-                    console.log(response.body);
                 }
+                //console.log(response.body);
             }).pipe(res);
     }
 });
