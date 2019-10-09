@@ -33,7 +33,7 @@ fetch("https://proxy.zme.ink/" + $url)
 - `node server.js`
 
 ### Fork
-- <https://github.com/Rob--W/cors-anywhere>
+- <https://github.com/ccoenraets/cors-proxy>
 
 ### Source
 - <https://github.com/netnr/proxy>
