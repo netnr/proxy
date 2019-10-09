@@ -25,6 +25,8 @@ app.all('*', function (req, res, next) {
             proxyUrl = "http://" + proxyUrl;
         }
 
+        console.log(new Date().toISOString(), proxyUrl);
+
         request({ url: proxyUrl, method: req.method, json: req.body, headers: { 'Authorization': req.header('Authorization'), 'User-Agent': req.header('User-Agent'), Cookie: req.header('Cookie') } },
             function (error, response) {
                 if (error) {
