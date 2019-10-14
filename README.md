@@ -5,6 +5,11 @@
 - 支持跨域请求（转换不支持跨域请求的接口），可直接发起 ajax、fetch
 - 支持HTTPS（解决远程数据接口不支持HTTPS）
 
+
+### 2019-10-14 更新
+- 部署的服务已停，需要自己部署
+- 线上使用请看 https://github.com/netnr/workers
+
 ### 接口
 - https://proxy.zme.ink/{URL}
 
@@ -15,9 +20,7 @@
 > 拷贝到控制台运行
 ```js
 var $url = "http://wthrcdn.etouch.cn/weather_mini?citykey=101040100";
-fetch("https://proxy.zme.ink/" + $url)
-	.then(x => x.text())
-	.then(console.log)
+fetch("https://proxy.zme.ink/" + $url).then(x => x.text()).then(console.log)
 ```
 
 ### 安装

@@ -30,6 +30,11 @@
                     <li>支持跨域请求（转换不支持跨域请求的接口），可直接发起 ajax、fetch</li>
                     <li>支持HTTPS（解决远程数据接口不支持HTTPS）</li>
                 </ul>
+                <h3>2019-10-14 更新</h3>
+                <ul>
+                    <li>部署的服务已停，需要自己部署</li>
+                    <li>线上使用请看 <a href="https://github.com/netnr/workers">https://github.com/netnr/workers</a></li>
+                </ul>
                 <h3>接口</h3>
                 <ul>
                     <li><a href="https://proxy.zme.ink/%7BURL%7D">https://proxy.zme.ink/{URL}</a></li>
@@ -43,9 +48,7 @@
                     <p>拷贝到控制台运行</p>
                 </blockquote>
 <pre><code class="language-js"><span class="hljs-keyword">var</span> $url = <span class="hljs-string">"http://wthrcdn.etouch.cn/weather_mini?citykey=101040100"</span>;
-fetch(<span class="hljs-string">"https://proxy.zme.ink/"</span> + $url)
-    .then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x.text())
-    .then(<span class="hljs-built_in">console</span>.log)</code></pre>
+fetch(<span class="hljs-string">"https://proxy.zme.ink/"</span> + $url).then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x.text()).then(<span class="hljs-built_in">console</span>.log)</code></pre>
                 <h3>安装</h3>
                 <ul>
                     <li><code>npm install</code></li>
