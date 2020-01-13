@@ -8,11 +8,12 @@ console.log('Using limit: ', myLimit);
 
 app.use(bodyParser.json({ limit: myLimit }));
 
-app.all('*', function(req, res, next) {
+app.all('*', function (req, res, next) {
     // Set CORS headers
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, PUT, PATCH, POST, DELETE");
-    res.header("Access-Control-Allow-Headers", req.header('access-control-request-headers'));
+    res.header("Access-Control-Allow-Methods", "GET, PUT, PATCH, POST, DELETE, OPTIONS");
+    var acah_dv = 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization';
+    res.header("Access-Control-Allow-Headers", req.header('access-control-request-headers') || acah_dv);
 
     if (req.method === 'OPTIONS' || req.url == "/favicon.ico" || req.url == "/robots.txt") {
         res.send();
@@ -28,7 +29,7 @@ app.all('*', function(req, res, next) {
         console.log(new Date().toISOString(), proxyUrl);
 
         request({ url: proxyUrl, method: req.method, json: req.body, headers: { 'Authorization': req.header('Authorization'), 'User-Agent': req.header('User-Agent'), Cookie: req.header('Cookie') } },
-            function(error, response) {
+            function (error, response) {
                 if (error) {
                     console.log(error.message);
                 }
@@ -39,6 +40,6 @@ app.all('*', function(req, res, next) {
 
 app.set('port', process.env.PORT || 8080);
 
-app.listen(app.get('port'), function() {
+app.listen(app.get('port'), function () {
     console.log('Proxy server listening on port ' + app.get('port'));
 });
