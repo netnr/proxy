@@ -12,7 +12,7 @@ app.all('*', function (req, res, next) {
     // Set CORS headers
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, PUT, PATCH, POST, DELETE, OPTIONS");
-    var acah_dv = 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization';
+    var acah_dv = 'Accept, Authorization, Cache-Control, Content-Type, DNT, If-Modified-Since, Keep-Alive, Origin, User-Agent, X-Requested-With, Token, x-access-token';
     res.header("Access-Control-Allow-Headers", req.header('access-control-request-headers') || acah_dv);
 
     if (req.method === 'OPTIONS' || req.url == "/favicon.ico" || req.url == "/robots.txt") {
