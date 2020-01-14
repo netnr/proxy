@@ -23,7 +23,7 @@ fetch("https://netnr-proxy.cloudno.de/" + $url).then(x => x.text()).then(console
 - `node server`
 
 ### Fork
-- <https://github.com/ccoenraets/cors-proxy>
+- <https://github.com/Rob--W/cors-anywhere/>
 
 ### Source
 - <https://github.com/netnr/proxy>
