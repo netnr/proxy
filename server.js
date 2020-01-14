@@ -1,45 +1,31 @@
-var express = require('express'),
-    request = require('request'),
-    bodyParser = require('body-parser'),
-    app = express();
+// Listen on a specific host via the HOST environment variable
+var host = process.env.HOST || '0.0.0.0';
+// Listen on a specific port via the PORT environment variable
+var port = process.env.PORT || 8080;
 
-var myLimit = typeof (process.argv[2]) != 'undefined' ? process.argv[2] : '100mb';
-console.log('Using limit: ', myLimit);
+// Grab the blacklist from the command-line so that we can update the blacklist without deploying
+// again. CORS Anywhere is open by design, and this blacklist is not used, except for countering
+// immediate abuse (e.g. denial of service). If you want to block all origins except for some,
+// use originWhitelist instead.
+var originBlacklist = [];
+var originWhitelist = [];
 
-app.use(bodyParser.json({ limit: myLimit }));
-
-app.all('*', function (req, res, next) {
-    // Set CORS headers
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, PUT, PATCH, POST, DELETE, OPTIONS");
-    var acah_dv = 'Accept, Authorization, Cache-Control, Content-Type, DNT, If-Modified-Since, Keep-Alive, Origin, User-Agent, X-Requested-With, Token, x-access-token';
-    res.header("Access-Control-Allow-Headers", req.header('access-control-request-headers') || acah_dv);
-
-    if (req.method === 'OPTIONS' || req.url == "/favicon.ico" || req.url == "/robots.txt") {
-        res.send();
-    }
-    else if (req.url == "/" || req.url.indexOf(".") == -1) {
-        res.send("Host/{URL}");
-    } else {
-        var proxyUrl = req.url.substring(1);
-        if (proxyUrl.toLowerCase().indexOf("http") != 0) {
-            proxyUrl = "http://" + proxyUrl;
-        }
-
-        console.log(new Date().toISOString(), proxyUrl);
-
-        request({ url: proxyUrl, method: req.method, json: req.body, headers: { 'Authorization': req.header('Authorization'), 'User-Agent': req.header('User-Agent'), Cookie: req.header('Cookie') } },
-            function (error, response) {
-                if (error) {
-                    console.log(error.message);
-                }
-                //console.log(response.body);
-            }).pipe(res);
-    }
-});
-
-app.set('port', process.env.PORT || 8080);
-
-app.listen(app.get('port'), function () {
-    console.log('Proxy server listening on port ' + app.get('port'));
+var cors_proxy = require('./lib/cors-anywhere');
+cors_proxy.createServer({
+    originBlacklist: originBlacklist,
+    originWhitelist: originWhitelist,
+    removeHeaders: [
+        // Strip Heroku-specific headers
+        'x-heroku-queue-wait-time',
+        'x-heroku-queue-depth',
+        'x-heroku-dynos-in-use',
+        'x-request-start',
+    ],
+    redirectSameOrigin: true,
+    httpProxyOptions: {
+        // Do not add X-Forwarded-For, etc. headers, because Heroku already adds it.
+        xfwd: false,
+    },
+}).listen(port, host, function () {
+    console.log('Running CORS Anywhere on ' + host + ':' + port);
 });
