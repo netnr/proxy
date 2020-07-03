@@ -14,8 +14,8 @@
 
     <title>proxy</title>
 
-    <link href="https://code.bdstatic.com/npm/netnrmd@2.2.3/src/netnrmd.css" rel="stylesheet" />
-    <link href="https://code.bdstatic.com/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://code.bdstatic.com/npm/netnrmd@2.2.3/src/netnrmd.css" async rel="stylesheet" />
+    <link href="https://code.bdstatic.com/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" async rel="stylesheet" />
 </head>
 <body>
     <div class="container">
@@ -32,18 +32,18 @@
                 </ul>
                 <h3>接口</h3>
                 <ul>
-                    <li><a href="https://netnr-proxy.cloudno.de/%7BURL%7D">https://netnr-proxy.cloudno.de/{URL}</a></li>
+                    <li><a href="https://netnr-proxy.herokuapp.com/%7BURL%7D">https://netnr-proxy.herokuapp.com/{URL}</a></li>
                 </ul>
                 <h3>使用</h3>
                 <ul>
-                    <li><a href="https://netnr-proxy.cloudno.de/https://api.github.com">https://netnr-proxy.cloudno.de/https://api.github.com</a></li>
-                    <li><a href="https://netnr-proxy.cloudno.de/http://nginx.org/download/nginx-1.16.1.tar.gz">https://netnr-proxy.cloudno.de/http://nginx.org/download/nginx-1.16.1.tar.gz</a></li>
+                    <li><a href="https://netnr-proxy.herokuapp.com/https://api.github.com">https://netnr-proxy.herokuapp.com/https://api.github.com</a></li>
+                    <li><a href="https://netnr-proxy.herokuapp.com/http://nginx.org/download/nginx-1.16.1.tar.gz">https://netnr-proxy.herokuapp.com/http://nginx.org/download/nginx-1.16.1.tar.gz</a></li>
                 </ul>
                 <blockquote>
                     <p>拷贝到控制台运行</p>
                 </blockquote>
 <pre><code class="language-js"><span class="hljs-keyword">var</span> $url = <span class="hljs-string">"http://wthrcdn.etouch.cn/weather_mini?citykey=101040100"</span>;
-fetch(<span class="hljs-string">"https://netnr-proxy.cloudno.de/"</span> + $url).then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x.text()).then(<span class="hljs-built_in">console</span>.log)</code></pre>
+fetch(<span class="hljs-string">"https://netnr-proxy.herokuapp.com/"</span> + $url).then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x.text()).then(<span class="hljs-built_in">console</span>.log)</code></pre>
                 <h3>安装</h3>
                 <ul>
                     <li><code>npm install</code></li>
