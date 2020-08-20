@@ -1,16 +1,15 @@
 {
-  "name": "cors-anywhere",
-  "version": "0.0.1",
+  "name": "netnr-proxy",
+  "version": "0.0.2",
   "description": "CORS Anywhere is a reverse proxy which adds CORS headers to the proxied request. Request URL is taken from the path",
-  "license": "MIT",
-  "author": "netnr",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/netnr/proxy"
-  },
-  "bugs": {
-    "url": "https://github.com/netnr/proxy/issues/",
-    "email": "netnr@netnr.com"
+    "url": "git+https://github.com/netnr/proxy.git"
   },
   "keywords": [
     "cors",
@@ -18,30 +17,14 @@
     "http-proxy",
     "proxy"
   ],
-  "main": "./lib/cors-anywhere.js",
-  "files": [
-    "lib/",
-    "server.js"
-  ],
+  "author": "netnr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/netnr/proxy/issues/"
+  },
+  "homepage": "https://github.com/netnr/proxy#readme",
   "dependencies": {
     "http-proxy": "1.18.1",
     "proxy-from-env": "1.1.0"
-  },
-  "devDependencies": {
-    "coveralls": "^3.1.0",
-    "eslint": "^7.0.0",
-    "istanbul": "^0.4.5",
-    "lolex": "^6.0.0",
-    "mocha": "^7.1.2",
-    "nock": "^12.0.3",
-    "supertest": "^4.0.2"
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "test": "mocha ./test/test*.js --reporter spec",
-    "test-coverage": "istanbul cover ./node_modules/.bin/_mocha -- test/test.js test/test-ratelimit.js --reporter spec"
-  },
-  "engines": {
-    "node": ">=0.10.0"
   }
 }

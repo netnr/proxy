@@ -14,7 +14,7 @@
 
     <title>proxy</title>
 
-    <link href="https://code.bdstatic.com/npm/netnrmd@2.2.3/src/netnrmd.css" async rel="stylesheet" />
+    <link href="https://code.bdstatic.com/npm/netnrmd@2.4.1/src/netnrmd.css" async rel="stylesheet" />
     <link href="https://code.bdstatic.com/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" async rel="stylesheet" />
 </head>
 <body>
@@ -22,39 +22,28 @@
         <div class="row">
             <div class="col-md-12 my-4 markdown-body">
                 <h1>proxy</h1>
-                <blockquote>
-                    <p>HTTP请求代理，CORS跨域请求，HTTPS支持</p>
-                </blockquote>
+                <p>HTTP 请求代理，CORS 跨域请求，HTTPS 支持</p>
                 <h3>作用</h3>
                 <ul>
                     <li>支持跨域请求（转换不支持跨域请求的接口），可直接发起 ajax、fetch</li>
-                    <li>支持HTTPS（解决远程数据接口不支持HTTPS）</li>
-                </ul>
-                <h3>接口</h3>
-                <ul>
-                    <li><a href="https://netnr-proxy.herokuapp.com/%7BURL%7D">https://netnr-proxy.herokuapp.com/{URL}</a></li>
+                    <li>支持 HTTPS（解决远程数据接口不支持 HTTPS）</li>
                 </ul>
                 <h3>使用</h3>
                 <ul>
-                    <li><a href="https://netnr-proxy.herokuapp.com/https://api.github.com">https://netnr-proxy.herokuapp.com/https://api.github.com</a></li>
-                    <li><a href="https://netnr-proxy.herokuapp.com/http://nginx.org/download/nginx-1.16.1.tar.gz">https://netnr-proxy.herokuapp.com/http://nginx.org/download/nginx-1.16.1.tar.gz</a></li>
+                    <li>Host/{URL}</li>
+                    <li><a href="https://d-proxy.zme.ink/https://api.github.com">https://d-proxy.zme.ink/https://api.github.com</a></li>
+                    <li><a href="https://d-proxy.zme.ink/nginx.org/download/nginx-1.18.0.zip">https://d-proxy.zme.ink/nginx.org/download/nginx-1.18.0.zip</a></li>
                 </ul>
-                <blockquote>
-                    <p>拷贝到控制台运行</p>
-                </blockquote>
-<pre><code class="language-js"><span class="hljs-keyword">var</span> $url = <span class="hljs-string">"http://wthrcdn.etouch.cn/weather_mini?citykey=101040100"</span>;
-fetch(<span class="hljs-string">"https://netnr-proxy.herokuapp.com/"</span> + $url).then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x.text()).then(<span class="hljs-built_in">console</span>.log)</code></pre>
-                <h3>安装</h3>
+<pre><code class="language-js"><span class="hljs-comment">// 拷贝到控制台运行</span>
+
+<span class="hljs-keyword">var</span> $url = <span class="hljs-string">"http://wthrcdn.etouch.cn/weather_mini?citykey=101040100"</span>;
+fetch(<span class="hljs-string">"https://d-proxy.zme.ink/"</span> + $url).then(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x.json()).then(<span class="hljs-built_in">console</span>.log)</code></pre>
+                <h3>运行</h3>
+<pre><code>yarn        <span class="hljs-comment"># 安装包</span>
+<span class="hljs-built_in">npm</span> start   <span class="hljs-comment"># 启动</span></code></pre>
+                <h3>源码</h3>
                 <ul>
-                    <li><code>npm install</code></li>
-                    <li><code>node server</code></li>
-                </ul>
-                <h3>Fork</h3>
-                <ul>
-                    <li><a href="https://github.com/Rob--W/cors-anywhere/">https://github.com/Rob--W/cors-anywhere/</a></li>
-                </ul>
-                <h3>Source</h3>
-                <ul>
+                    <li>Fork：<a href="https://github.com/Rob--W/cors-anywhere">https://github.com/Rob--W/cors-anywhere</a></li>
                     <li><a href="https://github.com/netnr/proxy">https://github.com/netnr/proxy</a></li>
                     <li><a href="https://gitee.com/netnr/proxy">https://gitee.com/netnr/proxy</a></li>
                 </ul>
