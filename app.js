@@ -276,6 +276,18 @@ function getHandler(options, proxy) {
             corsMaxAge: corsAnywhere.corsMaxAge,
         };
 
+        let clientip = req.headers['x-forwarded-for'] || // 判断是否有反向代理 IP
+            req.connection.remoteAddress || // 判断 connection 的远程 IP
+            req.socket.remoteAddress || // 判断后端的 socket 的 IP
+            req.connection.socket.remoteAddress;
+
+        console.log({
+            method: req.method,
+            url: req.url,
+            ip: clientip,
+            ua: req.headers["user-agent"]
+        });
+
         var cors_headers = withCORS({}, req);
         if (req.method === 'OPTIONS') {
             // Pre-flight request. Reply successfully:
@@ -288,8 +300,12 @@ function getHandler(options, proxy) {
 
         if (!location) {
             // Invalid API call. Show how to correctly use the API
+            cors_headers["Content-Type"] = "application/json";
             res.writeHead(200, cors_headers);
-            res.end("Host/{URL}");
+            res.end(JSON.stringify({
+                usage: "Host/{URL}",
+                source: "https://github.com/netnr/proxy"
+            }));
             return;
         }
 
@@ -428,5 +444,5 @@ createServer({
         xfwd: false,
     },
 }).listen(port, host, function () {
-    console.log('Running CORS Anywhere on ' + host + ':' + port);
+    console.log(new Date().toISOString() + ' Running CORS Anywhere on ' + host + ':' + port);
 });
