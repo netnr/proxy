@@ -281,12 +281,12 @@ function getHandler(options, proxy) {
             req.socket.remoteAddress || // 判断后端的 socket 的 IP
             req.connection.socket.remoteAddress;
 
-        console.log({
-            method: req.method,
-            url: req.url,
-            ip: clientip,
-            ua: req.headers["user-agent"]
-        });
+        console.log(JSON.stringify([
+            req.method,
+            req.url,
+            clientip,
+            req.headers["user-agent"]
+        ]));
 
         var cors_headers = withCORS({}, req);
         if (req.method === 'OPTIONS') {
