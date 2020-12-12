@@ -282,6 +282,7 @@ function getHandler(options, proxy) {
             req.connection.socket.remoteAddress;
 
         console.log(JSON.stringify([
+            new Date().toISOString(),
             req.method,
             req.url,
             clientip,
@@ -296,7 +297,7 @@ function getHandler(options, proxy) {
             return;
         }
 
-        var location = parseURL(req.url.slice(1));
+        var location = parseURL(decodeURIComponent(req.url.slice(1)));
 
         if (!location) {
             // Invalid API call. Show how to correctly use the API
@@ -422,6 +423,9 @@ function createServer(options) {
     return server;
 };
 
+process.on('uncaughtException', function (exception) {
+    console.log(exception);
+});
 
 // ========================== Start ==========================
 

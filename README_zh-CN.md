@@ -23,6 +23,9 @@ fetch("https://proxy.netnr.eu.org/" + $url).then(x => x.json()).then(console.log
 ```
 yarn        # 安装包
 npm start   # 启动
+
+node app.js
+PORT=8888 node app.js
 ```
 
 ### 源码
