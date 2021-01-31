@@ -1,4 +1,4 @@
-// © 2013 - 2016 Rob Wu <rob@robwu.nl>
+﻿// © 2013 - 2016 Rob Wu <rob@robwu.nl>
 // Released under the MIT license
 
 'use strict';
@@ -237,6 +237,8 @@ function getHandler(options, proxy) {
     var corsAnywhere = {
         getProxyForUrl: getProxyForUrl, // Function that specifies the proxy to use
         maxRedirects: 5,                // Maximum number of redirects to be followed.
+        originBlacklist: [],            // Requests from these origins will be blocked.
+        originWhitelist: [],            // If non-empty, requests not from an origin in this list will be blocked.
         checkRateLimit: null,           // Function that may enforce a rate-limit by returning a non-empty string.
         redirectSameOrigin: false,      // Redirect the client to the requested URL for same-origin requests.
         requireHeader: null,            // Require a header to be set?
@@ -339,6 +341,18 @@ function getHandler(options, proxy) {
             return;
         }
 
+        if (corsAnywhere.originBlacklist.indexOf(location.hostname) >= 0) {
+            res.writeHead(403, 'Forbidden', cors_headers);
+            res.end('The origin "' + location.hostname + '" was blacklisted by the operator of this proxy.');
+            return;
+        }
+
+        if (corsAnywhere.originWhitelist.length && corsAnywhere.originWhitelist.indexOf(location.hostname) === -1) {
+            res.writeHead(403, 'Forbidden', cors_headers);
+            res.end('The origin "' + location.hostname + '" was not whitelisted by the operator of this proxy.');
+            return;
+        }
+
         var origin = req.headers.origin || '';
 
         if (corsAnywhere.redirectSameOrigin && origin && location.href[origin.length] === '/' &&
@@ -435,16 +449,18 @@ var host = process.env.HOST || '0.0.0.0';
 var port = process.env.PORT || 8080;
 
 createServer({
+    // 移除头部的Key
     removeHeaders: [
-        // Strip Heroku-specific headers
         'x-heroku-queue-wait-time',
         'x-heroku-queue-depth',
         'x-heroku-dynos-in-use',
         'x-request-start',
     ],
+    originBlacklist: ["stream.novotempo.com"],// 阻断的名单
+    originWhitelist: [],// 如果不为空，只允许白名单
     redirectSameOrigin: true,
     httpProxyOptions: {
-        // Do not add X-Forwarded-For, etc. headers, because Heroku already adds it.
+        // 是否添加 X-Forwarded-For 头
         xfwd: false,
     },
 }).listen(port, host, function () {
