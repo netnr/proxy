@@ -9,14 +9,14 @@ HTTP request proxy, CORS cross-domain request, HTTPS support
 
 ### Use
 - Host/{URL}
-- <https://proxy.netnr.eu.org/https://api.github.com>
-- <https://proxy.netnr.eu.org/nginx.org/download/nginx-1.18.0.zip>
+- <https://proxy.cors.eu.org/https://api.github.com>
+- <https://proxy.cors.eu.org/nginx.org/download/nginx-1.18.0.zip>
 
 ```js
 // Copy to the console to run
 
 var $url = "http://wthrcdn.etouch.cn/weather_mini?citykey=101040100";
-fetch("https://proxy.netnr.eu.org/" + $url).then(x => x.json()).then(console.log)
+fetch("https://proxy.cors.eu.org/" + $url).then(x => x.json()).then(console.log)
 ```
 
 ### Run
