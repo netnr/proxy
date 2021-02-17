@@ -237,6 +237,7 @@ function getHandler(options, proxy) {
     var corsAnywhere = {
         getProxyForUrl: getProxyForUrl, // Function that specifies the proxy to use
         maxRedirects: 5,                // Maximum number of redirects to be followed.
+        keywordBlacklist: [],           // Requests from these keywords will be blocked.
         originBlacklist: [],            // Requests from these origins will be blocked.
         originWhitelist: [],            // If non-empty, requests not from an origin in this list will be blocked.
         checkRateLimit: null,           // Function that may enforce a rate-limit by returning a non-empty string.
@@ -338,6 +339,12 @@ function getHandler(options, proxy) {
         if (!hasRequiredHeaders(req.headers)) {
             res.writeHead(400, 'Header required', cors_headers);
             res.end('Missing required request header. Must specify one of: ' + corsAnywhere.requireHeader);
+            return;
+        }
+
+        if (corsAnywhere.keywordBlacklist.filter(x => location.href.indexOf(x) >= 0).length > 0) {
+            res.writeHead(403, 'Forbidden', cors_headers);
+            res.end('The keyword "' + corsAnywhere.keywordBlacklist.join(" ") + '" was blacklisted by the operator of this proxy.');
             return;
         }
 
@@ -456,7 +463,8 @@ createServer({
         'x-heroku-dynos-in-use',
         'x-request-start',
     ],
-    originBlacklist: ["stream.novotempo.com"],// 阻断的名单
+    keywordBlacklist: [".m3u8"],// 阻断的关键字
+    originBlacklist: [],// 阻断的名单
     originWhitelist: [],// 如果不为空，只允许白名单
     redirectSameOrigin: true,
     httpProxyOptions: {
