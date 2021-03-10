@@ -463,7 +463,7 @@ createServer({
         'x-heroku-dynos-in-use',
         'x-request-start',
     ],
-    keywordBlacklist: [".m3u8"],// 阻断的关键字
+    keywordBlacklist: [".m3u8", ".mpd", ".m4v"],// 阻断的关键字
     originBlacklist: [],// 阻断的名单
     originWhitelist: [],// 如果不为空，只允许白名单
     redirectSameOrigin: true,

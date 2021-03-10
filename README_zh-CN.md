@@ -9,14 +9,14 @@ HTTP 请求代理，CORS 跨域请求，HTTPS 支持
 
 ### 使用
 - Host/{URL}
-- <https://proxy.cors.eu.org/https://api.github.com>
-- <https://proxy.cors.eu.org/nginx.org/download/nginx-1.18.0.zip>
+- <https://netnr-proxy.azurewebsites.net/api.github.com>
+- <https://netnr-proxy.azurewebsites.net/nginx.org/download/nginx-1.18.0.zip>
 
 ```js
 // 拷贝到控制台运行
 
 var $url = "http://wthrcdn.etouch.cn/weather_mini?citykey=101040100";
-fetch("https://proxy.cors.eu.org/" + $url).then(x => x.json()).then(console.log)
+fetch("https://netnr-proxy.azurewebsites.net/" + $url).then(x => x.json()).then(console.log)
 ```
 
 ### 运行
