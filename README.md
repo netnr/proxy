@@ -9,8 +9,8 @@ HTTP request proxy, CORS cross-domain request, HTTPS support
 
 ### Use
 - Host/{URL}
-- <https://netnr-proxy.azurewebsites.net/api.github.com>
-- <https://netnr-proxy.azurewebsites.net/nginx.org/download/nginx-1.18.0.zip>
+- <https://nr-proxy.cloudno.de/api.github.com>
+- <https://nr-proxy.cloudno.de/http://nginx.org/download/nginx-1.20.1.zip>
 
 ```js
 // Copy to the console to run
@@ -21,14 +21,12 @@ fetch("https://netnr-proxy.azurewebsites.net/" + $url).then(x => x.json()).then(
 
 ### Run
 ```
-yarn        # Installation package
 npm start   # start
 
-node app.js
-PORT=8888 node app.js
+# node app.js
+# PORT=8888 node app.js
 ```
 
 ### Source code
 - Fork: <https://github.com/Rob--W/cors-anywhere>
 - <https://github.com/netnr/proxy>
-- <https://gitee.com/netnr/proxy>

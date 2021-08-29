@@ -9,8 +9,8 @@ HTTP 请求代理，CORS 跨域请求，HTTPS 支持
 
 ### 使用
 - Host/{URL}
-- <https://netnr-proxy.azurewebsites.net/api.github.com>
-- <https://netnr-proxy.azurewebsites.net/nginx.org/download/nginx-1.18.0.zip>
+- <https://nr-proxy.cloudno.de/api.github.com>
+- <https://nr-proxy.cloudno.de/http://nginx.org/download/nginx-1.20.1.zip>
 
 ```js
 // 拷贝到控制台运行
@@ -21,14 +21,12 @@ fetch("https://netnr-proxy.azurewebsites.net/" + $url).then(x => x.json()).then(
 
 ### 运行
 ```
-yarn        # 安装包
 npm start   # 启动
 
-node app.js
-PORT=8888 node app.js
+# node app.js
+# PORT=8888 node app.js
 ```
 
 ### 源码
 - Fork：<https://github.com/Rob--W/cors-anywhere>
 - <https://github.com/netnr/proxy>
-- <https://gitee.com/netnr/proxy>
