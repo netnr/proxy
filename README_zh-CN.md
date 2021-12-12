@@ -16,7 +16,7 @@ HTTP 请求代理，CORS 跨域请求，HTTPS 支持
 // 拷贝到控制台运行
 
 var $url = "wthrcdn.etouch.cn/weather_mini?citykey=101040100";
-fetch("https://netnr-proxy.azurewebsites.net/" + $url).then(x => x.json()).then(console.log)
+fetch("https://netnr-proxy.herokuapp.com/" + $url).then(x => x.json()).then(console.log)
 ```
 
 ### 运行

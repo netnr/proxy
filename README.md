@@ -16,7 +16,7 @@ HTTP request proxy, CORS cross-domain request, HTTPS support
 // Copy to the console to run
 
 var $url = "wthrcdn.etouch.cn/weather_mini?citykey=101040100";
-fetch("https://netnr-proxy.azurewebsites.net/" + $url).then(x => x.json()).then(console.log)
+fetch("https://netnr-proxy.herokuapp.com/" + $url).then(x => x.json()).then(console.log)
 ```
 
 ### Run
