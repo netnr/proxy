@@ -9,14 +9,14 @@ HTTP request proxy, CORS cross-domain request, HTTPS support
 
 ### Use
 - Host/{URL}
-- <https://nr-proxy.cloudno.de/api.github.com>
-- <https://nr-proxy.cloudno.de/http://nginx.org/download/nginx-1.20.1.zip>
+- <https://proxy.zme.ink/api.github.com>
+- <https://proxy.zme.ink/http://nginx.org/download/nginx-1.20.1.zip>
 
 ```js
 // Copy to the console to run
 
 var $url = "wthrcdn.etouch.cn/weather_mini?citykey=101040100";
-fetch("https://netnr-proxy.herokuapp.com/" + $url).then(x => x.json()).then(console.log)
+fetch("https://proxy.zme.ink/" + $url).then(x => x.json()).then(console.log)
 ```
 
 ### Run
