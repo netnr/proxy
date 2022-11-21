@@ -467,9 +467,10 @@ createServer({
     originBlacklist: [],// 阻断的名单
     originWhitelist: [],// 如果不为空，只允许白名单
     redirectSameOrigin: true,
+    // http-proxy 组件选项配置
     httpProxyOptions: {
-        // 是否添加 X-Forwarded-For 头
-        xfwd: false,
+        xfwd: false,// 是否添加 X-Forwarded-For 头
+        secure: false // ignore ssl
     },
 }).listen(port, host, function () {
     console.log(new Date().toISOString() + ' Running CORS Anywhere on ' + host + ':' + port);
