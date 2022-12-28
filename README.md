@@ -8,16 +8,9 @@ HTTP request proxy, CORS cross-domain request, HTTPS support
 - Support HTTPS (Resolve that the remote data interface does not support HTTPS)
 
 ### Use
-- Host/{URL}
-- <https://proxy.zme.ink/api.github.com>
-- <https://proxy.zme.ink/http://nginx.org/download/nginx-1.20.1.zip>
-
-```js
-// Copy to the console to run
-
-var $url = "wthrcdn.etouch.cn/weather_mini?citykey=101040100";
-fetch("https://proxy.zme.ink/" + $url).then(x => x.json()).then(console.log)
-```
+- {Host}/{URL}
+- {Host}/api.github.com
+- {Host}/http://nginx.org/download/nginx-1.22.1.zip
 
 ### Run
 ```

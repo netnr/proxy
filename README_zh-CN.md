@@ -8,16 +8,9 @@ HTTP 请求代理，CORS 跨域请求，HTTPS 支持
 - 支持 HTTPS（解决远程数据接口不支持 HTTPS）
 
 ### 使用
-- Host/{URL}
-- <https://proxy.zme.ink/api.github.com>
-- <https://proxy.zme.ink/http://nginx.org/download/nginx-1.20.1.zip>
-
-```js
-// 拷贝到控制台运行
-
-var $url = "wthrcdn.etouch.cn/weather_mini?citykey=101040100";
-fetch("https://proxy.zme.ink/" + $url).then(x => x.json()).then(console.log)
-```
+- {Host}/{URL}
+- {Host}/api.github.com
+- {Host}/http://nginx.org/download/nginx-1.22.1.zip
 
 ### 运行
 ```
