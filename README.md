@@ -1,25 +1,27 @@
-English | [简体中文](README_zh-CN.md)
-
 # proxy
+HTTP 请求代理，CORS 跨域请求，HTTPS 支持  
 HTTP request proxy, CORS cross-domain request, HTTPS support
 
-### Function
-- Support cross-domain requests (converting interfaces that do not support cross-domain requests), and directly initiate ajax, fetch
-- Support HTTPS (Resolve that the remote data interface does not support HTTPS)
+### 作用 Feature
+支持跨域请求（转换不支持跨域请求的接口），可直接发起 ajax、fetch  
+Support cross-domain requests (converting interfaces that do not support cross-domain requests), and directly initiate ajax, fetch
 
-### Use
-- {Host}/{URL}
-- {Host}/api.github.com
-- {Host}/http://nginx.org/download/nginx-1.22.1.zip
+支持 HTTPS（解决远程数据接口不支持 HTTPS）  
+Support HTTPS (Resolve that the remote data interface does not support HTTPS)
 
-### Run
+### 使用 Usage
+- https://seep.eu.org/{URL}
+- https://seep.eu.org/api.github.com
+- https://seep.eu.org/http://nginx.org/download/nginx-1.22.1.zip
+
+### 运行 Run
 ```
-npm start   # start
+npm start   # 启动
 
 # node app.js
 # PORT=8888 node app.js
 ```
 
-### Source code
-- Fork: <https://github.com/Rob--W/cors-anywhere>
-- <https://github.com/netnr/proxy>
+### Source
+Fork：<https://github.com/Rob--W/cors-anywhere>  
+<https://github.com/netnr/proxy>
