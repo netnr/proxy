@@ -1,12 +1,11 @@
 ﻿// © 2013 - 2016 Rob Wu <rob@robwu.nl>
 // Released under the MIT license
 
-'use strict';
-
-var httpProxy = require('http-proxy');
-var net = require('net');
-var url = require('url');
-var getProxyForUrl = require('proxy-from-env').getProxyForUrl;
+import httpProxy from 'http-proxy';
+import net from 'net';
+import http from 'http';
+import https from 'https';
+import { getProxyForUrl } from 'proxy-from-env';
 
 /**
  * Check whether the specified hostname is valid.
@@ -151,7 +150,7 @@ function onProxyResponse(proxy, proxyReq, proxyRes, req, res) {
         var locationHeader = proxyRes.headers.location;
         var parsedLocation;
         if (locationHeader) {
-            locationHeader = url.resolve(requestState.location.href, locationHeader);
+            locationHeader = new URL(locationHeader, requestState.location.href).href;
             parsedLocation = parseURL(locationHeader);
         }
         if (parsedLocation) {
@@ -223,12 +222,16 @@ function parseURL(req_url) {
         }
         req_url = (match[4] === '443' ? 'https:' : 'http:') + req_url;
     }
-    return url.parse(req_url);
-    var parsed = url.parse(req_url);
-    if (!parsed.hostname) {
-        // "http://:1/" and "http:/notenoughslashes" could end up here.
+    try {
+        var parsed = new URL(req_url);
+    } catch (e) {
         return null;
     }
+    if (!parsed.hostname) {
+        return null;
+    }
+    // Add .path for compatibility with http-proxy
+    parsed.path = parsed.pathname + parsed.search;
     return parsed;
 }
 
@@ -411,9 +414,9 @@ function createServer(options) {
     var requestHandler = getHandler(options, proxy);
     var server;
     if (options.httpsOptions) {
-        server = require('https').createServer(options.httpsOptions, requestHandler);
+        server = https.createServer(options.httpsOptions, requestHandler);
     } else {
-        server = require('http').createServer(requestHandler);
+        server = http.createServer(requestHandler);
     }
 
     // When the server fails, just show a 404 instead of Internal server error

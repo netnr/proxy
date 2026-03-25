@@ -1,6 +1,7 @@
 {
   "name": "netnr-proxy",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "type": "module",
   "description": "CORS Anywhere is a reverse proxy which adds CORS headers to the proxied request. Request URL is taken from the path",
   "main": "app.js",
   "scripts": {
