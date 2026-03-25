@@ -2,9 +2,9 @@
 // Released under the MIT license
 
 import httpProxy from 'http-proxy';
-import net from 'net';
-import http from 'http';
-import https from 'https';
+import net from 'node:net';
+import http from 'node:http';
+import https from 'node:https';
 import { getProxyForUrl } from 'proxy-from-env';
 
 /**
